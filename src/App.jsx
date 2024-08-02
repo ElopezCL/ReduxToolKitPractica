@@ -1,12 +1,15 @@
-import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { decrement, increment, increment2 } from './store/slices/counter';
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
+const {counter} = useSelector(state => state.counter);
+const dispatch = useDispatch();
+
+return (
     <>
       <div>
         <a href="https://vitejs.dev" target="_blank">
@@ -18,9 +21,17 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+      count is {counter}
+        <button onClick={() => dispatch(increment())}>
+          increment
         </button>
+        <button onClick={() => dispatch(decrement())}>
+          decrement
+        </button>
+        <button onClick={() => dispatch(increment2())}>
+          decrement by 2
+        </button>
+
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
