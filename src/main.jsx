@@ -4,7 +4,7 @@ import App from './App.jsx'
 import {Provider} from 'react-redux'
 import './index.css'
 import { store } from './store/store.js'
-import { PokemonApi } from './PokemonApp.jsx'
+import {  PokemonApp } from './PokemonApp.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
